@@ -1,0 +1,170 @@
+.contact {
+  width: 100%;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  color: #fff;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title h2 {
+  font-size: 2.8rem;
+  color: #00e6e6;
+  margin-bottom: 10px;
+}
+
+.title p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: fadeInUp 0.9s ease both;
+}
+
+.form input,
+.form textarea {
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #222;
+  color: #fff;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.form input:focus,
+.form textarea:focus {
+  background: #1a1a1a;
+  border: 1px solid #00e6e6;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 25px;
+  background: #00e6e6;
+  color: #111;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #00b3b3;
+  color: #fff;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #00e6e6;
+}
+
+.info {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 230, 230, 0.15);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info h3 {
+  color: #00e6e6;
+  margin-bottom: 10px;
+}
+
+.info p {
+  color: #ccc;
+  line-height: 1.7;
+}
+
+.info {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 230, 230, 0.16);
+  border-radius: 18px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeInUp 1s ease 0.1s both;
+}
+
+.info h3 {
+  color: #00e6e6;
+  margin-bottom: 12px;
+}
+
+.info p {
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.social {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  animation: fadeInUp 1s ease 0.15s both;
+}
+
+.social h3 {
+  color: #00e6e6;
+  margin-bottom: 15px;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  font-size: 1.8rem;
+}
+
+.icons a {
+  color: #fff;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.icons a:hover {
+  color: #00e6e6;
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

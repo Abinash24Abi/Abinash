@@ -1,0 +1,129 @@
+.about {
+  width: 100%;
+  padding: 100px 20px;
+  background: radial-gradient(circle at top left, rgba(0,230,230,0.12), transparent 25%), #111;
+  color: #fff;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title h2 {
+  font-size: 2.8rem;
+  color: #00e6e6;
+  margin-bottom: 10px;
+}
+
+.title p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 580px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ccc;
+  animation: fadeInUp 0.9s ease both;
+}
+
+.skills {
+  flex: 1;
+  min-width: 320px;
+  background: rgba(255,255,255,0.04);
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(0,230,230,0.16);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.skills h3 {
+  font-size: 1.9rem;
+  color: #00e6e6;
+  margin-bottom: 24px;
+}
+
+.skill {
+  margin-bottom: 22px;
+  animation: fadeInUp 0.8s ease both;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #e4f7f7;
+}
+
+.skillBar {
+  width: 100%;
+  height: 14px;
+  background: #181818;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.skillLevel {
+  height: 100%;
+  background: linear-gradient(90deg, #00e6e6, #00b3b3);
+  border-radius: 999px;
+  transition: width 1.5s ease;
+  animation: fillBar 1.5s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fillBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width, 100%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .skills {
+    width: 100%;
+  }
+
+  .skill span {
+    text-align: center;
+  }
+}
