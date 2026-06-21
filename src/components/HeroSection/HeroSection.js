@@ -4,7 +4,7 @@ import profile from '../../asset/profile.jpeg'
 import { FiArrowRight } from "react-icons/fi";
 
 const HeroSection = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [, setIsHovered] = useState(false);
 
   return (
     <section id="home" className={styles.hero}>
