@@ -1,13 +1,70 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./About.module.css";
+import { FiBriefcase, FiAward, FiUsers } from "react-icons/fi";
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const section = document.getElementById("about");
+    if (section) observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  const skills = [
+    { name: "JavaScript", level: 95 },
+    { name: "React.js", level: 90 },
+    { name: "Node.js & Express.js", level: 88 },
+    { name: "MongoDB & SQL Server", level: 82 },
+    { name: "MySQL", level: 80 },
+    { name: "Redux & Context API", level: 78 },
+    { name: "HTML, CSS & Bootstrap", level: 92 },
+    { name: "Git, Docker, Jenkins", level: 75 },
+  ];
+
+  const stats = [
+    { icon: FiBriefcase, value: "3+", label: "Projects Delivered" },
+    { icon: FiAward, value: "1.5+", label: "Years Experience" },
+    { icon: FiUsers, value: "500+", label: "Daily Users Served" },
+  ];
+
   return (
     <section id="about" className={styles.about}>
+      <div className={styles.bgGlow}></div>
+
       <div className={styles.container}>
         <div className={styles.title}>
           <h2>About Me</h2>
-          <p>Passionate Developer Creating Modern Web Solutions</p>
+          <p>Full Stack Developer with Proven Track Record</p>
+        </div>
+
+        {/* Stats */}
+        <div className={styles.statsContainer}>
+          {stats.map((stat, idx) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={idx}
+                className={styles.statCard}
+                style={{
+                  animation: `fadeInUp 0.8s ease ${0.1 * (idx + 1)}s both`,
+                }}
+              >
+                <Icon className={styles.statIcon} />
+                <div className={styles.statValue}>{stat.value}</div>
+                <div className={styles.statLabel}>{stat.label}</div>
+              </div>
+            );
+          })}
         </div>
 
         <div className={styles.content}>
@@ -19,71 +76,45 @@ const About = () => {
               web applications, RESTful APIs, and role-based systems with secure, maintainable code.
             </p>
             <p>
-              I have delivered scalable full-stack solutions, optimized backend performance,
-              and collaborated with cross-functional teams to release features on time with
-              clean and reusable code.
+              I have delivered scalable full-stack solutions, optimized backend performance
+              by <strong>42%</strong>, and collaborated with cross-functional teams to release
+              features on time with clean and reusable code.
             </p>
+            <div className={styles.highlights}>
+              <div className={styles.highlight}>✓ MERN Stack Expert</div>
+              <div className={styles.highlight}>✓ REST API Design</div>
+              <div className={styles.highlight}>✓ JWT Authentication</div>
+              <div className={styles.highlight}>✓ SQL & NoSQL Databases</div>
+            </div>
           </div>
 
           {/* Right Skills */}
           <div className={styles.skills}>
-            <h3>My Skills</h3>
+            <h3>Technical Skills</h3>
 
-            <div className={styles.skill}>
-              <span>JavaScript</span>
-              <div className={styles.skillBar}>
-                <div className={styles.skillLevel} style={{ width: "95%" }}></div>
+            {skills.map((skill, idx) => (
+              <div
+                key={idx}
+                className={styles.skill}
+                style={{
+                  animation: `fadeInUp 0.8s ease ${0.05 * (idx + 1)}s both`,
+                }}
+              >
+                <div className={styles.skillHeader}>
+                  <span>{skill.name}</span>
+                  <span className={styles.skillPercent}>{skill.level}%</span>
+                </div>
+                <div className={styles.skillBar}>
+                  <div
+                    className={styles.skillLevel}
+                    style={{
+                      width: isVisible ? `${skill.level}%` : "0%",
+                      transitionDelay: `${0.05 * idx}s`,
+                    }}
+                  ></div>
+                </div>
               </div>
-            </div>
-
-            <div className={styles.skill}>
-              <span>React.js</span>
-              <div className={styles.skillBar}>
-                <div className={styles.skillLevel} style={{ width: "90%" }}></div>
-              </div>
-            </div>
-
-            <div className={styles.skill}>
-              <span>Node.js & Express.js</span>
-              <div className={styles.skillBar}>
-                <div className={styles.skillLevel} style={{ width: "88%" }}></div>
-              </div>
-            </div>
-
-            <div className={styles.skill}>
-              <span>MongoDB & SQL Server</span>
-              <div className={styles.skillBar}>
-                <div className={styles.skillLevel} style={{ width: "82%" }}></div>
-              </div>
-            </div>
-
-            <div className={styles.skill}>
-              <span>MySQL</span>
-              <div className={styles.skillBar}>
-                <div className={styles.skillLevel} style={{ width: "80%" }}></div>
-              </div>
-            </div>
-
-            <div className={styles.skill}>
-              <span>Redux & Redux-Saga</span>
-              <div className={styles.skillBar}>
-                <div className={styles.skillLevel} style={{ width: "78%" }}></div>
-              </div>
-            </div>
-
-            <div className={styles.skill}>
-              <span>HTML, CSS & Bootstrap</span>
-              <div className={styles.skillBar}>
-                <div className={styles.skillLevel} style={{ width: "92%" }}></div>
-              </div>
-            </div>
-
-            <div className={styles.skill}>
-              <span>Git, GitHub, Docker, Jenkins</span>
-              <div className={styles.skillBar}>
-                <div className={styles.skillLevel} style={{ width: "75%" }}></div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

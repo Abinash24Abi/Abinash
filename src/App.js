@@ -13,6 +13,7 @@ function App() {
       <main>
         <HeroSection />
         <AboutMe />
+        <div id="skills"></div>
         <Projects />
         <Contact />
       </main>
